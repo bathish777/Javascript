@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <sCript>
+    //   let  num =[1,2,3,4];
+    //   let result= num.reduce((count,elem)=>{
+    //     if(elem%2 ==0){
+    //         count ++;
+    //     }
+    //     return count
+    //   },20)
+    //   console.log(result);
+
+      let num=[1,2,4,6];
+      let res=num.filter((elem,init)=>{
+init=init+" "
+        if(elem%2==0){
+            init=init+elem;
+
+        }
+        return init;
+      })
+
+    </sCript>
+</body>
+</html>

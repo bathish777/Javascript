@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function abb(a,b){
+            return a+b
+        }
+        function sub(a,b){
+            return a-b
+        }
+        function mul(a,b){
+            return a*b
+        }
+
+        function cal(a,b,task){ //higher order functions
+            let result = task(a,b)
+            return result;
+        }
+
+        let a = cal(2,4,abb)
+        console.log(a);
+    </script>
+</body>
+</html>

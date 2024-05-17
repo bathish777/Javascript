@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #iframe {
+            height: 50%;
+        }
+
+        #iframe>iframe {
+            height: 40vh;
+            width: 80vh;
+            border-radius: 16px;
+        }
+
+        img{
+            height: 20em;
+            width: 40em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <article id="iframe">
+            <iframe src="https://www.youtube.com/embed/NC0DNl82Cgg?si=bSZCyAO3AKV_2U3q" title="my video" frameborder="0"></iframe>
+        </article>
+
+        <article>
+            <img src="https://www.google.com/imgres?q=ronaldo&imgurl=https%3A%2F%2Ftmssl.akamaized.net%2Fimages%2Ffoto%2Fgalerie%2Fronaldo-cristiano-2017-real-madrid-ballon-d-or-2016-0026751808hjpg-1698686328-120749.jpg%3Flm%3D1698686338&imgrefurl=https%3A%2F%2Fwww.transfermarkt.com%2Fcristiano-ronaldo%2Fprofil%2Fspieler%2F8198&docid=tvHyBZYdfNKvOM&tbnid=hTORy8DtdNehwM&vet=12ahUKEwiKsP3vl8mFAxUKzqACHea2D5wQM3oECH4QAA..i&w=1002&h=560&hcb=2&itg=1&ved=2ahUKEwiKsP3vl8mFAxUKzqACHea2D5wQM3oECH4QAA"alt="Ronaldo Image">
+            <!-- alt should be displayed instead of image in page -->
+        </article>
+    </section>
+</body>
+
+</html>

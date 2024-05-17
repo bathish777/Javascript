@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cal(a,b,task){
+            let result = task(a,b);
+            return result;
+        }
+        let [a,b] = [10,20]
+        let add = cal(a,b,function (a,b){
+            return a+b
+        })
+        console.log(add);
+    </script>
+</body>
+</html>

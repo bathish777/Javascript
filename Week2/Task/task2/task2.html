@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Drawing App</title>
+    <style>
+        /* CSS for styling */
+        #canvas {
+            border: 2px solid black;
+            cursor: crosshair;
+        }
+        #controls {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="500"></canvas>
+    <div id="controls">
+        <input type="color" id="colorPicker" value="#000000"> <!-- Color Picker -->
+        <input type="range" id="lineThickness" min="1" max="20" value="5"> <!-- Line Thickness Control -->
+        <button id="eraserButton">Eraser</button> <!-- Eraser Feature -->
+        <button id="clearButton">Clear</button> <!-- Clear Button -->
+        <button id="downloadButton">Download</button> <!-- Download as Image Button -->
+    </div>
+
+    <script>
+        // JavaScript for drawing functionality
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        let isDrawing = false;
+        let eraserMode = false;
+        
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        document.getElementById('eraserButton').addEventListener('click', toggleEraserMode);
+        document.getElementById('clearButton').addEventListener('click', clearCanvas);
+        document.getElementById('downloadButton').addEventListener('click', downloadImage);
+
+        function startDrawing(e) {
+            isDrawing = true;
+            context.beginPath();
+            // context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            let x = e.clientX - canvas.offsetLeft;
+            let y = e.clientY - canvas.offsetTop;
+            if (eraserMode) {
+                context.globalCompositeOperation = 'destination-out';
+                context.arc(x, y, document.getElementById('lineThickness').value / 2, 0, Math.PI * 2);
+                context.fill();
+            } else {
+                context.globalCompositeOperation = 'source-over';
+                context.lineTo(x, y);
+                context.strokeStyle = document.getElementById('colorPicker').value;
+                context.lineWidth = document.getElementById('lineThickness').value;
+                context.stroke();
+            }
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function toggleEraserMode() {
+            eraserMode = !eraserMode;
+            if (eraserMode) {
+                document.getElementById('eraserButton').textContent = 'Draw';
+            } else {
+                document.getElementById('eraserButton').textContent = 'Eraser';
+            }
+        }
+
+        function clearCanvas() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function downloadImage() {
+            const image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            const link = document.createElement('a');
+            link.href = image;
+            link.download = 'drawing.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

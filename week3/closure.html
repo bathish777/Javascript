@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function a(){
+            let b = 20;
+            function c(){
+                return b;
+            }
+            return c;
+        }
+        let result = a()
+        console.log(result());//20
+
+
+
+        // function a(){
+        //     // return "Hello World";
+        //     console.log("Hello World"); 
+        //     return "bye"; //
+        // }
+        // // a() 
+        // // console.log(a());
+
+        // let result = a()
+        // console.log(result); //bye
+
+
+
+        // function b(){
+        //     let b =30;
+        //     console.log(b);//30
+        //     return b;
+        // }
+        // let a = b();
+        // console.log(a);//30
+        
+    </script>
+</body>
+</html>

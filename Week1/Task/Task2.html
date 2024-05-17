@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Rectangle</title>
+</head>
+<body>
+    <canvas style="border: 1px solid black;" id="myCanvas" width="800" height="700"></canvas>
+    <script>
+
+        
+
+        // COOMON FOR ALL SHAPES
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+
+        //    RECTANGLE
+        ctx.fillStyle = 'green';
+        ctx.fillRect(20,20,100,80)  ;
+
+        // Get the canvas element and its 2D context
+        // Define the coordinates, width, and height of the rectangle
+        // var x = 350;
+        // var y = 150;
+        // var width = 100;
+        // var height = 100;
+        // Set the fill style (color) of the rectangle
+        // ctx.fillStyle = 'green';
+        // Draw the filled rectangle
+        // ctx.fillRect(x, y, width, height); 
+        // ctx.fillRect(20,20,100,80)  // (x-axis,y-axis,width,height)
+
+
+
+        // circle
+
+        ctx.fillStyle = 'red';
+        ctx.beginPath(); //START
+        // ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.arc(200,100,50,0,2*Math.PI);
+        ctx.fill() //fill
+        ctx.stroke(); //DRAW
+
+
+        //triangle
+
+         // Define the coordinates of the triangle vertices
+        var x1 = 350;
+        var y1 = 50;
+        var x2 = x1 + 100; // x2 = x1 + side length
+        var y2 = y1 + Math.sqrt(3) * 100 / 2; // y2 = y1 + sqrt(3) * side length / 2
+        var x3 = x1 - 100; // x3 = x1 - side length
+        var y3 = y2;
+
+        // Set the fill style (color) of the triangle
+        ctx.fillStyle = 'green';
+
+        // Draw the filled triangle
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.lineTo(x3, y3);
+        ctx.closePath();
+        ctx.fill();
+
+
+        //line
+
+        var startX =50;
+        var startY = 200;
+        var endX = 250;
+        var endY = 200;
+
+        // Set the stroke style (color), line width, and line cap properties
+        // ctx.strokeStyle = 'purple'; // Color of the line
+        ctx.lineWidth = 3; // Thickness of the line
+        // ctx.lineCap = 'round'; // Style of line endings (round, butt, square)
+
+        // Draw the line
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+
+
+        //  custom 1
+        ctx.beginPath()
+        ctx.moveTo(60,400)
+        ctx.lineTo(120,400)
+        ctx.lineTo(90,450)
+        ctx.lineTo(60,400)
+        ctx.lineTo(90,400)
+        ctx.lineTo(90,450)
+        // ctx.lineTo(60,400)
+        ctx.stroke()
+
+        //custom design
+      ctx.beginPath()
+      ctx.moveTo(50,600)
+      ctx.lineTo(100,600)
+      ctx.lineTo(75,650)
+      ctx.lineTo(50,600)
+      ctx.lineTo(75,550)
+      ctx.lineTo(100,600)
+      ctx.stroke()
+      
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            /* display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(10rem,100%),1fr);
+            grid-gap: 1rem; */
+            /*background*/
+            background-image: url("./img/home1.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        section {
+            height: 100%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        section>#head>h1 {
+            font-size: 10vh;
+        }
+
+        section>#form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 6vh;
+            box-shadow: 0px 0px 50px black;
+            padding: 2vh;
+            width: 50vh;
+            flex: 1 0 130px;
+            margin-top: 5vh;
+        }
+
+        section>#form>label {
+            margin-top: 2vh;
+            font-size: 3vh;
+        }
+
+        section>#form>input {
+            padding: 1.5vh;
+            width: 20em;
+            height: 3vh;
+            border-radius: 15vh;
+        }
+
+        section>#form>button {
+            margin-top: 5vh;
+            height: 5vh;
+            width: 15vh;
+            padding: 7px;
+            border-radius: 15vh;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <article id="head">
+            <h1>User Registration Form</h1>
+        </article>
+        <article id="form">
+            <label for="">UserName</label>
+            <input type="text" id="username" required>
+            <label for="">Email</label>
+            <input type="email" id="email" required>
+            <label for="">Password</label>
+            <input type="password" id="password">
+            <label for="">Confirm Password</label>
+            <input type="password" id="confirmpassword">
+            <label for="">Date of Birth</label>
+            <input type="date" id="date">
+            <button onclick="submit()">Submit</button>
+        </article>
+    </section>
+
+
+
+
+    <script>
+        let username = document.getElementById("username")
+        let email = document.getElementById("email")
+        let password = document.getElementById("password")
+        let confirmpassword = document.getElementById("confirmpassword")
+        let date = document.getElementById("date")
+
+        function submit() {
+
+            let userhandle = username.value;
+            let emailhandle = email.value;
+            let passwordhandle = password.value;
+            let confirmpasswordhandle = confirmpassword.value;
+            let datehandle = date.value;
+            let dateof = new Date(datehandle);
+            let currentDate = new Date()
+
+
+            if (userhandle == "") {
+                alert("Name should not be empty")
+            } else if (!/^[a-zA-Z_$][a-zA-Z\d_$]*$/.test(userhandle)) {
+                alert("Name should not contain special characters")
+            } else if (userhandle.length < 6) {
+                alert("Name should be more than 6 character")
+            } else if (emailhandle == "") {
+                alert(" enter Email")
+            } else if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailhandle)) {
+                alert("invalid Email Id")
+            } else if (passwordhandle == "") {
+                alert("Enter Password")
+            } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/.test(passwordhandle)) {
+                alert("invalid password Format( length between 8 and 20 characters, containing at least one lowercase letter, one uppercase letter, and one digit.)")
+            } else if (confirmpasswordhandle == "") {
+                alert("confirm  Password")
+            } else if (passwordhandle != confirmpasswordhandle) {
+                alert("password doesnt match ")
+            } else if (datehandle == "") {
+                alert("Enter the DOB")
+            } else if (currentDate.getFullYear() - dateof.getFullYear() <= 18 && currentDate.getMonth() - dateof.getMonth() <= 0) {
+                
+                alert("Your are not 18")
+            }
+            else{
+                alert("User Registered")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
